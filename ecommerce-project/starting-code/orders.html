@@ -1,157 +1,190 @@
-.home-page {
-  margin-top: 60px;
-}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Orders</title>
 
-.home-page .products-grid {
-  display: grid;
+    <!-- This code is needed for responsive design to work.
+      (Responsive design = make the website look good on
+      smaller screen sizes like a phone or a tablet). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  /* - In CSS Grid, 1fr means a column will take up the
-       remaining space in the grid.
-     - If we write 1fr 1fr ... 1fr; 8 times, this will
-       divide the grid into 8 columns, each taking up an
-       equal amount of the space.
-     - repeat(8, 1fr); is a shortcut for repeating "1fr"
-       8 times (instead of typing out "1fr" 8 times).
-       repeat(...) is a special property that works with
-       display: grid; */
-  grid-template-columns: repeat(8, 1fr);
-}
+    <!-- Load a font called Roboto from Google Fonts. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-/* @media is used to create responsive design (making the
-   website look good on any screen size). This @media
-   means when the screen width is 2000px or less, we
-   will divide the grid into 7 columns instead of 8. */
-@media (max-width: 2000px) {
-  .home-page .products-grid {
-    grid-template-columns: repeat(7, 1fr);
-  }
-}
+    <!-- Here are the CSS files for this page. -->
+    <link rel="stylesheet" href="styles/shared/general.css">
+    <link rel="stylesheet" href="styles/shared/header.css">
+    <link rel="stylesheet" href="styles/pages/orders.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="left-section">
+        <a href="index.html" class="header-link">
+          <img class="logo"
+            src="images/logo-white.png" />
+          <img class="mobile-logo"
+            src="images/mobile-logo-white.png" />
+        </a>
+      </div>
 
-/* This @media means when the screen width is 1600px or
-   less, we will divide the grid into 6 columns. */
-@media (max-width: 1600px) {
-  .home-page .products-grid {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
+      <div class="middle-section">
+        <input class="search-bar" type="text" placeholder="Search" />
 
-@media (max-width: 1300px) {
-  .home-page .products-grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
+        <button class="search-button">
+          <img class="search-icon" src="images/icons/search-icon.png" />
+        </button>
+      </div>
 
-@media (max-width: 1000px) {
-  .home-page .products-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
+      <div class="right-section">
+        <a class="orders-link header-link" href="orders.html">
 
-@media (max-width: 800px) {
-  .home-page .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+          <span class="orders-text">Orders</span>
+        </a>
 
-@media (max-width: 575px) {
-  .home-page .products-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+        <a class="cart-link header-link" href="checkout.html">
+          <img class="cart-icon" src="images/icons/cart-icon.png" />
+          <div class="cart-quantity">3</div>
+          <div class="cart-text">Cart</div>
+        </a>
+      </div>
+    </div>
 
-@media (max-width: 450px) {
-  .home-page .products-grid {
-    grid-template-columns: 1fr;
-  }
-}
+    <div class="orders-page">
+      <div class="page-title">Your Orders</div>
 
-.home-page .product-container {
-  padding-top: 40px;
-  padding-bottom: 25px;
-  padding-left: 25px;
-  padding-right: 25px;
+      <div class="orders-grid">
+        <div class="order-container">
 
-  border-right: 1px solid rgb(240, 240, 240);
-  border-bottom: 1px solid rgb(240, 240, 240);
+          <div class="order-header">
+            <div class="order-header-left-section">
+              <div class="order-date">
+                <div class="order-header-label">Order Placed:</div>
+                <div>August 12</div>
+              </div>
+              <div class="order-total">
+                <div class="order-header-label">Total:</div>
+                <div>$35.06</div>
+              </div>
+            </div>
 
-  display: flex;
-  flex-direction: column;
-}
+            <div class="order-header-right-section">
+              <div class="order-header-label">Order ID:</div>
+              <div>27cba69d-4c3d-4098-b42d-ac7fa62b7664</div>
+            </div>
+          </div>
 
-.home-page .product-image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+          <div class="order-details-grid">
+            <div class="product-image-container">
+              <img src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+            </div>
 
-  height: 180px;
-  margin-bottom: 20px;
-}
+            <div class="product-details">
+              <div class="product-name">
+                Black and Gray Athletic Cotton Socks - 6 Pairs
+              </div>
+              <div class="product-delivery-date">
+                Arriving on: August 15
+              </div>
+              <div class="product-quantity">
+                Quantity: 1
+              </div>
+              <button class="buy-again-button button-primary">
+                <img class="buy-again-icon" src="images/icons/buy-again.png" />
+                <span class="buy-again-message">Add to Cart</span>
+              </button>
+            </div>
 
-.home-page .product-image {
-  /* Images overflow the container by default. To prevent this, set
-     max-width and max-height to 100% to stay inside container. */
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 5px;
-}
+            <div class="product-actions">
+              <a href="tracking.html">
+                <button class="track-package-button button-secondary">
+                  Track package
+                </button>
+              </a>
+            </div>
 
-.home-page .product-name {
-  height: 40px;
-  margin-bottom: 5px;
-}
+            <div class="product-image-container">
+              <img src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg" />
+            </div>
 
-.home-page .product-rating-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
+            <div class="product-details">
+              <div class="product-name">
+                Adults Plain Cotton T-Shirt - 2 Pack
+              </div>
+              <div class="product-delivery-date">
+                Arriving on: August 19
+              </div>
+              <div class="product-quantity">
+                Quantity: 2
+              </div>
+              <button class="buy-again-button button-primary">
+                <img class="buy-again-icon" src="images/icons/buy-again.png" />
+                <span class="buy-again-message">Add to Cart</span>
+              </button>
+            </div>
 
-.home-page .product-rating-stars {
-  width: 100px;
-  margin-right: 6px;
-}
+            <div class="product-actions">
+              <a href="tracking.html">
+                <button class="track-package-button button-secondary">
+                  Track package
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
 
-.home-page .product-rating-count {
-  color: rgb(25, 135, 84);
-  cursor: auto;
-  margin-top: 3px;
-}
+        <div class="order-container">
 
-.home-page .product-price {
-  font-weight: 700;
-  margin-bottom: 10px;
-}
+          <div class="order-header">
+            <div class="order-header-left-section">
+              <div class="order-date">
+                <div class="order-header-label">Order Placed:</div>
+                <div>June 10</div>
+              </div>
+              <div class="order-total">
+                <div class="order-header-label">Total:</div>
+                <div>$41.90</div>
+              </div>
+            </div>
 
-.home-page .product-quantity-container {
-  margin-bottom: 17px;
-}
+            <div class="order-header-right-section">
+              <div class="order-header-label">Order ID:</div>
+              <div>b6b6c212-d30e-4d4a-805d-90b52ce6b37d</div>
+            </div>
+          </div>
 
-.home-page .product-spacer {
-  flex: 1;
-}
+          <div class="order-details-grid">
+            <div class="product-image-container">
+              <img src="images/products/intermediate-composite-basketball.jpg" />
+            </div>
 
-.home-page .added-to-cart {
-  color: rgb(25, 135, 84);
-  font-size: 16px;
+            <div class="product-details">
+              <div class="product-name">
+                Intermediate Size Basketball
+              </div>
+              <div class="product-delivery-date">
+                Arriving on: June 17
+              </div>
+              <div class="product-quantity">
+                Quantity: 2
+              </div>
+              <button class="buy-again-button button-primary">
+                <img class="buy-again-icon" src="images/icons/buy-again.png" />
+                <span class="buy-again-message">Add to Cart</span>
+              </button>
+            </div>
 
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-
-  /* At first, the "Added to cart" message will
-     be invisible. Use JavaScript to change the
-     opacity and make it visible. */
-  opacity: 0;
-}
-
-.home-page .added-to-cart img {
-  height: 19px;
-  margin-right: 6px;
-}
-
-.home-page .add-to-cart-button {
-  width: 100%;
-  padding: 8px;
-  height: 34px;
-  margin-top: 1px;
-}
+            <div class="product-actions">
+              <a href="tracking.html">
+                <button class="track-package-button button-secondary">
+                  Track package
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
